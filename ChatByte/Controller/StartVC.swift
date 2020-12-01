@@ -9,10 +9,21 @@ import UIKit
 
 class StartVC: UIViewController {
 
+    @IBOutlet weak var appNameLabel: UILabel!
+    
+    private let appName: String = "ChatByte"
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        var charIndex = 0.0
+        
+        for letter in appName {
+            Timer.scheduledTimer(withTimeInterval: 0.1 * charIndex, repeats: false) { (timer: Timer) in
+                self.appNameLabel.text?.append(letter)
+            }
+            charIndex += 1
+        }
     }
 
 }
